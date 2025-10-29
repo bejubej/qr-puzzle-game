@@ -110,17 +110,17 @@
             font-size: 24px;
         }
 
-        .qr-placeholder {
-            width: 250px;
-            height: 250px;
-            background: white;
-            border: 3px dashed #667eea;
-            border-radius: 10px;
+        .qr-image {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
             margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
+            display: block;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .instructions {
@@ -176,6 +176,11 @@
             font-size: 14px;
             margin-top: 5px;
         }
+
+        .loading {
+            color: #999;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -210,15 +215,12 @@
                 Zeskanuj kod QR poniżej, aby odebrać nagrodę!
             </p>
             
-            <div class="qr-placeholder">
-                📱
-            </div>
+            <!-- KOD QR Z GITHUBA -->
+            <img src="reward_qr.png" alt="Kod QR z nagrodą" class="qr-image" id="rewardQR">
             
             <div class="instructions">
-                <strong>Instrukcja:</strong><br>
-                1. Wygeneruj swój kod QR z nagrodą<br>
-                2. Umieść go w tym miejscu (zastąp placeholder)<br>
-                3. Może to być link do: kuponu, filmu, tajnej strony, itp.
+                <strong>🎯 Zeskanuj ten kod aby zobaczyć swoją nagrodę!</strong><br>
+                Użyj dowolnej aplikacji do skanowania kodów QR na swoim telefonie.
             </div>
         </div>
 
@@ -255,6 +257,13 @@
         }
 
         checkCompletion();
+
+        // Sprawdź czy obrazek się załadował
+        const qrImage = document.getElementById('rewardQR');
+        qrImage.onerror = function() {
+            this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="300"%3E%3Crect fill="%23f5f5f5" width="300" height="300"/%3E%3Ctext x="50%25" y="50%25" font-size="20" text-anchor="middle" fill="%23999"%3EWgraj plik reward_qr.png%3C/text%3E%3C/svg%3E';
+            this.style.border = '3px dashed #999';
+        };
     </script>
 </body>
 </html>
