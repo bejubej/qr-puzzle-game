@@ -175,19 +175,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎯 QR Puzzle Game</h1>
+        <h1>🎯 Zagadki Puzelki</h1>
         <div class="progress" id="progress">Postęp: 0/9 Fragmentów</div>
         
         <div class="grid" id="grid"></div>
         
         <div class="instructions">
-            Zeskanuj prawidłowe kody QR aby odkryć wszystkie 9 fragmentów!
+            Zeskanuj prawidłowe odpowiedzi aby odkryć wszystkie 9 fragmentów!
         </div>
         
         <div id="completion"></div>
     </div>
 
-    <button class="reset-btn" onclick="resetProgress()">🔄 Reset (Test)</button>
+    <button class="reset-btn" onclick="resetProgress()">🔄 Reset</button>
 
     <script>
         const TOTAL_FRAGMENTS = 9;
@@ -299,4 +299,5 @@
         updateDisplay();
     </script>
 </body>
+
 </html>
